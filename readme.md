@@ -19,7 +19,7 @@ but `class RadioClass` is unnecessary (`class Radio` is just as descriptive).
 * Variable names should be written in camelCase, starting with a lowercase
   letter.
 
-	````c  	
+	````cpp
 	// Bad example
 	int MyVariable;
 
@@ -34,7 +34,7 @@ but `class RadioClass` is unnecessary (`class Radio` is just as descriptive).
   with an uppercase letter. Do not add a `_t` suffix at the end of the name,
   those are reserved to the C standard library.
   
-	````c
+	````cpp
 	// Bad example
 	class myClass { }
 
@@ -48,9 +48,28 @@ but `class RadioClass` is unnecessary (`class Radio` is just as descriptive).
 	class MyClass { }
 	````
 
-* Variable name should contain redundant information about their type (Hungarian
-  notation). `Pointer` in `Radio* transmissionModulePointer` is useless since
-  the type of the variable is typed out.
+* In C, all structures (`struct`) should be typedef-ed: writing
+  `foo(MyStruct* param)` is shorter than `foo(struct MyStruct* param)`. This
+  also allow better interaction with C++.
+	
+	````c
+	// Bad example
+	struct RadioPacket {
+		int		id;
+		char	contents[512];
+	};
+	
+	// Good example
+	typedef struct RadioPacket {
+		int		id;
+		char	contents[512];
+	} RadioPacket;
+	````
+	
+
+* Variable names should not contain redundant information about their type
+  (Hungarian notation). `Pointer` in `Radio* transmissionModulePointer` is
+  useless since the type of the variable is typed out.
 
 * Non-obvious abbreviations should be avoided as much as possible. Widely-used
   ones (`len => length`, `num => number` ...) are accepted but should be avoided
@@ -64,23 +83,24 @@ but `class RadioClass` is unnecessary (`class Radio` is just as descriptive).
 * The opening brace of a block should appear at the end of the line opening the
   block:
   
-		// Bad example
-		void badlyBracedFunction(int arg)
+	````cpp
+	// Bad example
+	void badlyBracedFunction(int arg)
+	{
+		doSomething();
+	}
+
+	// Bad example
+	void anotherBadFunction(int arg)
 		{
 			doSomething();
 		}
-	   
-		// Bad example
-		void anotherBadFunction(int arg)
-			{
-				doSomething();
-			}
-		
-		// Good example
-		void goodExample(int arg) {
-			doSomething();
-		}
 
+	// Good example
+	void goodExample(int arg) {
+		doSomething();
+	}
+	````
 
 ## 3. Structure
 
@@ -97,19 +117,20 @@ but `class RadioClass` is unnecessary (`class Radio` is just as descriptive).
   read or write any global variable. Pure functions make it easier to predict
   the outcome of a program and write unit tests.
   
-  		
-		int currentCount = 0;
-		
-		// Not a pure function, depends on global [currentCount]
-		int newCount(int number) {
-			currentCount += number;
-			number;
-		}
-		
-		// Pure function
-		int newCount(int currentCount, int number) {
-			return currentCount + number;
-		}
+	````cpp 		
+	int currentCount = 0;
+
+	// Not a pure function, depends on global [currentCount]
+	int newCount(int number) {
+		currentCount += number;
+		number;
+	}
+
+	// Pure function
+	int newCount(int currentCount, int number) {
+		return currentCount + number;
+	}
+	````
 
 ## 4. Documentation and Comments
 
@@ -120,42 +141,46 @@ but `class RadioClass` is unnecessary (`class Radio` is just as descriptive).
   If the function relies on some non-trivial behaviour or algorithm, it should
   be explained in a paragraph below the brief description.
   
-  		
-		// Prints a character to the console
-		void print(const char* string) {
-			...
-		}
-		
-		
-		// Shortly, *what* the function does
-		//
-		// Less shortly, *how* it does it, if an explanation is necessary.
-		// Some more explaining. And then some.
-		void someComplexProcessingFunction(int array[], size_t length) {
-			...
-		}
+	````cpp	
+	// Prints a character to the console
+	void print(const char* string) {
+		...
+	}
+
+
+	// Shortly, *what* the function does
+	//
+	// Less shortly, *how* it does it, if an explanation is necessary.
+	// Some more explaining. And then some.
+	void someComplexProcessingFunction(int array[], size_t length) {
+		...
+	}
+	````
 
 * Limit comments inside a function's body to things that are not obvious. If
   the naming and structure guidelines in §2 et §3 are followed, few comments
   are necessary inside functions.
   
-  		
-		// Bad example:
-		int userID; // int to store the userID
+	````cpp  		
+	// Bad example:
+	int userID; // int to store the userID
+	````
 
 * The top of each file should have a comment header that specifies the project
   the file is part of, the purpose of the functions declared in the file and
   the users that have worked on the file (in format `name/username <email>`):
-  
-  		//
-  		// FlightSoftware-Core
-		// radio_transmit.c - functions used to send data through radio
-		//
-		// [longer description if required]
-		//
-		// authors:		Jane Doe <janedoe@foo.bar>
-		//				John Doe <john123@bar.foo>
-		//
-		
-		...
+
+	````cpp  
+	//
+	// FlightSoftware-Core
+	// radio_transmit.c - functions used to send data through radio
+	//
+	// [longer description if required]
+	//
+	// authors:		Jane Doe <janedoe@foo.bar>
+	//				John Doe <john123@bar.foo>
+	//
+
+	...
+	````
 
