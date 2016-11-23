@@ -42,7 +42,7 @@ but `class RadioClass` is unnecessary (`class Radio` is just as descriptive).
 		class my_class_t { }
 
 		// Good example
-		class myClass { }
+		class MyClass { }
 
 * Variable name should contain redundant information about their type (Hungarian
   notation). `Pointer` in `Radio* transmissionModulePointer` is useless since
