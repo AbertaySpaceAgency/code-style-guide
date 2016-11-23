@@ -92,6 +92,20 @@ but `class RadioClass` is unnecessary (`class Radio` is just as descriptive).
   function whose output depends solely on its parameters, and which does not
   read or write any global variable. Pure functions make it easier to predict
   the outcome of a program and write unit tests.
+  
+  		
+		int currentCount = 0;
+		
+		// Not a pure function, depends on global [currentCount]
+		int newCount(int number) {
+			currentCount += number;
+			number;
+		}
+		
+		// Pure function
+		int newCount(int currentCount, int number) {
+			return currentCount + number;
+		}
 
 ## 4. Documentation and Comments
 
