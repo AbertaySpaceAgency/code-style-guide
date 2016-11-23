@@ -10,11 +10,11 @@ If you have doubts about how to write a piece of code, go for the solution that
 will be the easier to understand to someone else, and be consistent with the
 rest of the file and project.
 
-## Naming Conventions
+## 1. Naming Conventions
 
 When naming types, classes, variables and functions, always favour readability
 over excessive brevity. `stoi()` is much less obvious than `stringToInt()`,
-but `class RadioClass` is unecessary (`class Radio` is just as descriptive).
+but `class RadioClass` is unnecessary (`class Radio` is just as descriptive).
 
 * Variable names should be written in camelCase, starting with a lowercase
   letter.
@@ -53,7 +53,7 @@ but `class RadioClass` is unecessary (`class Radio` is just as descriptive).
   when space is not an issue.
 
 
-## Indentation, Spacing and Braces
+## 2. Indentation, Spacing and Braces
 
 * Blocks of code should be indented with tabs (4 character wide)..
 
@@ -78,7 +78,21 @@ but `class RadioClass` is unecessary (`class Radio` is just as descriptive).
 		}
 
 
-## Documentation and Comments
+## 3. Structure
 
-## Functions
+* Short, single-purpose functions should always be preferred over monolithic
+  ones. Single-purpose functions are more modular and easier to combine to
+  obtain different behaviours.
+
+* Global variables should be avoided as much as possible. They make it harder
+  to understand program behaviour, and lead to conflicts between functions and
+  threading problems.
+
+* When possible, *pure functions* should be preferred. A pure function is a
+  function whose output depends solely on its parameters, and which does not
+  read or write any global variable. Pure functions make it easier to predict
+  the outcome of a program and write unit tests.
+
+## 4. Documentation and Comments
+
 
