@@ -18,31 +18,35 @@ but `class RadioClass` is unnecessary (`class Radio` is just as descriptive).
 
 * Variable names should be written in camelCase, starting with a lowercase
   letter.
-  	
-		// Bad example
-		int MyVariable;
-		
-		// Bad example
-		int my_variable;
-		
-		// Good example
-		int myVariable;
+
+	````c  	
+	// Bad example
+	int MyVariable;
+
+	// Bad example
+	int my_variable;
+
+	// Good example
+	int myVariable;
+	````
 
 * Classes, structs and types names in general should be in CamelCase starting
   with an uppercase letter. Do not add a `_t` suffix at the end of the name,
   those are reserved to the C standard library.
   
-		// Bad example
-		class myClass { }
+	````c
+	// Bad example
+	class myClass { }
 
-		// Bad example
-		class my_class { }
-		
-		// Bad example
-		class my_class_t { }
+	// Bad example
+	class my_class { }
 
-		// Good example
-		class MyClass { }
+	// Bad example
+	class my_class_t { }
+
+	// Good example
+	class MyClass { }
+	````
 
 * Variable name should contain redundant information about their type (Hungarian
   notation). `Pointer` in `Radio* transmissionModulePointer` is useless since
