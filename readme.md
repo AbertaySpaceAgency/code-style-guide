@@ -16,8 +16,8 @@ When naming types, classes, variables and functions, always favour readability
 over excessive brevity. `stoi()` is much less obvious than `stringToInt()`,
 but `class RadioClass` is unnecessary (`class Radio` is just as descriptive).
 
-* Variable names should be written in camelCase, starting with a lowercase
-  letter.
+1. Variable names should be written in camelCase, starting with a lowercase
+   letter.
 
 	````cpp
 	// Bad example
@@ -30,9 +30,9 @@ but `class RadioClass` is unnecessary (`class Radio` is just as descriptive).
 	int myVariable;
 	````
 
-* Classes, structs and types names in general should be in CamelCase starting
-  with an uppercase letter. Do not add a `_t` suffix at the end of the name,
-  those are reserved to the C standard library.
+2. Classes, structs and types names in general should be in CamelCase starting
+   with an uppercase letter. Do not add a `_t` suffix at the end of the name,
+   those are reserved to the C standard library.
   
 	````cpp
 	// Bad example
@@ -48,9 +48,9 @@ but `class RadioClass` is unnecessary (`class Radio` is just as descriptive).
 	class MyClass { }
 	````
 
-* In C, all structures (`struct`) should be typedef-ed: writing
-  `foo(MyStruct* param)` is shorter than `foo(struct MyStruct* param)`. This
-  also allow better interaction with C++.
+3. In C, all structures (`struct`) should be typedef-ed: `foo(MyStruct* param)`
+   is shorter and more readable than `foo(struct MyStruct* param)`. This also
+   allows better interaction with C++.
 	
 	````c
 	// Bad example
@@ -67,21 +67,21 @@ but `class RadioClass` is unnecessary (`class Radio` is just as descriptive).
 	````
 	
 
-* Variable names should not contain redundant information about their type
-  (Hungarian notation). `Pointer` in `Radio* transmissionModulePointer` is
-  useless since the type of the variable is typed out.
+4. Variable names should not contain redundant information about their type
+   (Hungarian notation). `Pointer` in `Radio* transmissionModulePointer` is
+   useless since the type of the variable is typed out.
 
-* Non-obvious abbreviations should be avoided as much as possible. Widely-used
-  ones (`len => length`, `num => number` ...) are accepted but should be avoided
-  when space is not an issue.
+5. Non-obvious abbreviations should be avoided as much as possible. Widely-used
+   ones (`len => length`, `num => number` ...) are accepted but should be
+   avoided when space is not an issue.
 
 
 ## 2. Indentation, Spacing and Braces
 
-* Blocks of code should be indented with tabs (4 character wide)..
+1. Blocks of code should be indented with tabs (4 character wide)..
 
-* The opening brace of a block should appear at the end of the line opening the
-  block:
+2. The opening brace of a block should appear at the end of the line opening the
+   block:
   
 	````cpp
 	// Bad example
@@ -104,18 +104,18 @@ but `class RadioClass` is unnecessary (`class Radio` is just as descriptive).
 
 ## 3. Structure
 
-* Short, single-purpose functions should always be preferred over monolithic
-  ones. Single-purpose functions are more modular and easier to combine to
-  obtain different behaviours.
+1. Short, single-purpose functions should always be preferred over monolithic
+   ones. Single-purpose functions are more modular and easier to combine to
+   obtain different behaviours.
 
-* Global variables should be avoided as much as possible. They make it harder
-  to understand program behaviour, and lead to conflicts between functions and
-  threading problems.
+2. Global variables should be avoided as much as possible. They make it harder
+   to understand program behaviour, and lead to conflicts between functions and
+   threading problems.
 
-* When possible, *pure functions* should be preferred. A pure function is a
-  function whose output depends solely on its parameters, and which does not
-  read or write any global variable. Pure functions make it easier to predict
-  the outcome of a program and write unit tests.
+3. When possible, *pure functions* should be preferred. A pure function is a
+   function whose output depends solely on its parameters, and which does not
+   read or write any global variable. Pure functions make it easier to predict
+   the outcome of a program and write unit tests.
   
 	````cpp 		
 	int currentCount = 0;
@@ -134,12 +134,12 @@ but `class RadioClass` is unnecessary (`class Radio` is just as descriptive).
 
 ## 4. Documentation and Comments
 
-* Each function should have a brief, 1/2-line description comment. If you
-  follow the guidelines from §3, it should be enough to explain what the
-  function does.
+1. Each function should have a brief, 1/2-line description comment. If you
+   follow the guidelines from §3, it should be enough to explain what the
+   function does.
   
-  If the function relies on some non-trivial behaviour or algorithm, it should
-  be explained in a paragraph below the brief description.
+   If the function relies on some non-trivial behaviour or algorithm, it should
+   be explained in a paragraph below the brief description.
   
 	````cpp	
 	// Prints a character to the console
@@ -157,18 +157,18 @@ but `class RadioClass` is unnecessary (`class Radio` is just as descriptive).
 	}
 	````
 
-* Limit comments inside a function's body to things that are not obvious. If
-  the naming and structure guidelines in §2 et §3 are followed, few comments
-  are necessary inside functions.
+2. Limit comments inside a function's body to things that are not obvious. If
+   the naming and structure guidelines in §2 et §3 are followed, few comments
+   are necessary inside functions.
   
 	````cpp  		
 	// Bad example:
 	int userID; // int to store the userID
 	````
 
-* The top of each file should have a comment header that specifies the project
-  the file is part of, the purpose of the functions declared in the file and
-  the users that have worked on the file (in format `name/username <email>`):
+3. The top of each file should have a comment header that specifies the project
+   the file is part of, the purpose of the functions declared in the file and
+   the users that have worked on the file (in format `name/username <email>`):
 
 	````cpp  
 	//
