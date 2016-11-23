@@ -109,4 +109,35 @@ but `class RadioClass` is unnecessary (`class Radio` is just as descriptive).
 
 ## 4. Documentation and Comments
 
+* Each function should have a brief, 1/2-line description comment. If you
+  follow the guidelines from §3, it should be enough to explain what the
+  function does.
+  
+  If the function relies on some non-trivial behaviour or algorithm, it should
+  be explained in a paragraph below the brief description.
+  
+  		
+		/*
+		 * Prints a character to the console
+		 */
+		void print(const char* string) {
+			...
+		}
+		
+		/*
+		 * Shortly, *what* the function does
+		 *
+		 * Less shortly, *how* it does it, if an explanation is necessary.
+		 */
+		void someComplexProcessingFunction(int array[], size_t length) {
+			...
+		}
+
+* Limit comments inside a function's body to things that are not obvious. If
+  the naming and structure guidelines in §2 et §3 are followed, few comments
+  are necessary inside functions.
+  
+  		
+		// Bad example:
+		int userID; // int to store the userID
 
