@@ -117,18 +117,16 @@ but `class RadioClass` is unnecessary (`class Radio` is just as descriptive).
   be explained in a paragraph below the brief description.
   
   		
-		/*
-		 * Prints a character to the console
-		 */
+		// Prints a character to the console
 		void print(const char* string) {
 			...
 		}
 		
-		/*
-		 * Shortly, *what* the function does
-		 *
-		 * Less shortly, *how* it does it, if an explanation is necessary.
-		 */
+		
+		// Shortly, *what* the function does
+		//
+		// Less shortly, *how* it does it, if an explanation is necessary.
+		// Some more explaining. And then some.
 		void someComplexProcessingFunction(int array[], size_t length) {
 			...
 		}
@@ -140,4 +138,20 @@ but `class RadioClass` is unnecessary (`class Radio` is just as descriptive).
   		
 		// Bad example:
 		int userID; // int to store the userID
+
+* The top of each file should have a comment header that specifies the project
+  the file is part of, the purpose of the functions declared in the file and
+  the users that have worked on the file (in format `name/username <email>`):
+  
+  		//
+  		// FlightSoftware-Core
+		// radio_transmit.c - functions used to send data through radio
+		//
+		// [longer description if required]
+		//
+		// authors:		Jane Doe <janedoe@foo.bar>
+		//				John Doe <john123@bar.foo>
+		//
+		
+		...
 
